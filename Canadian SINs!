@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); 
+        System.out.print("Enter 9-Digit Canadian Sin: ");
+        int num = scanner.nextInt();
+        System.out.print("digits: " + printSpace(num));
+        int sum = digit(num);
+        int rightDigit = last(sum);
+
+        System.out.println("\nSum: " + sum);
+        System.out.println("Rightmost digit of sum: " + rightDigit);
+    }
+
+    public static String printSpace(int sum) {
+        String numS = Integer.toString(sum);
+        return String.join(" ", numS.split(""));
+        }
+
+    public static int digit(int num) {
+        int sum = 0;
+        int digt1 = num % 10;
+        num = num/10;
+        int digt2 = num % 10;
+        digt2 = digt2*2;
+        num = num/10;
+        int digt3 = num % 10;
+        num = num/10;
+        int digt4 = num % 10;
+        digt4 = digt4*2;
+        num = num/10;
+        int digt5 = num % 10;
+        num = num/10;
+        int digt6 = num % 10;
+        digt6 = digt6*2;
+        num = num/10;
+        int digt7 = num % 10;
+        num = num/10;
+        int digt8 = num % 10;
+        digt8 = digt8*2;
+        num = num/10;
+        int digt9 = num % 10;
+        num = num/10;
+
+        sum = digt1 + digt2 + digt3+ digt4 + digt5 + digt6 + digt7 + digt8 + digt9;
+        return sum;
+    }  
+
+    public static int last(int sum){
+        int rightDigit = sum % 10;
+        return rightDigit;
+    }
+}
+
