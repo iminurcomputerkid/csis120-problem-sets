@@ -1,0 +1,45 @@
+/**
+ * Problem set #2, This Problem is Alarming! 
+ * 
+ * @author Julien 
+ * @version 2/9/24
+ */
+
+import java.util.Scanner;
+public class AlarmClock {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter current hour: ");
+        int cH = scanner.nextInt();
+        System.out.print("Enter current mintues: ");
+        int cM = scanner.nextInt();
+        System.out.print("Enter alarm hour: ");
+        int aH = scanner.nextInt();
+        System.out.print("Enter alarm mintues: ");
+        int aM = scanner.nextInt();
+        getMinsUntilAlarm(cH,cM,aH,aM);
+    }
+    public static void getMinsUntilAlarm(int currentHour, int currentMin, int alarmHour, int alarmMin){
+        int hourDif;
+        int minDif;
+        hourDif = alarmHour - currentHour;
+        minDif = alarmMin - currentMin;
+        if ((hourDif<0)&&(minDif<0)) 
+        {
+            hourDif = 24 - (Math.abs(hourDif))-1;
+            minDif = 60 - (Math.abs(minDif));
+        } 
+        else if(hourDif<0) 
+        {
+            hourDif = 24 -(Math.abs(hourDif));
+        }
+        else if(minDif<0) 
+        {
+            hourDif = hourDif-1;
+            minDif = 60-(Math.abs(minDif));
+        }
+        
+        System.out.println("There are " + hourDif + " hours and " + minDif +" minutes until the alarm will sound.");
+    }
+}
