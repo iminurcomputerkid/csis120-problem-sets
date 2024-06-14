@@ -1,0 +1,41 @@
+/**
+ * Problem set 3 - Uber Eats Delivery
+ * 
+ * @author Julien 
+ * @version 3/7/24
+ */
+import java.util.Scanner;
+public class Main 
+{
+    //Request's user to input a string of arrows, then prints out the floor that the delivery is on
+    public static void main(String[] args) 
+    {
+        Scanner scnr = new Scanner(System. in);
+        System.out.print("Enter the directions: ");
+        String direction = scnr.nextLine();
+        System.out.println("Delivery floor is " + uberDirections(direction));
+    }
+    /**
+        This method checks the length of the inputted string adding 1 to the
+        floor count (intialized at 1) if ">" is entered and subtracting 1 if "<" is entered.
+        @param a string
+        @return an int(floor)
+    */
+    public static int uberDirections(String x) 
+    {
+        int floor = 1;
+        for (int i = 0; i < x.length(); i++) 
+        {
+            String length = x.substring(i, i + 1);
+            if (length.equals(">")) 
+            {
+                floor += 1;
+            }
+            if (length.equals("<")) 
+            {
+                floor -= 1;
+            }
+        }
+        return floor;
+    }
+}
