@@ -1,0 +1,112 @@
+/**
+ * Problem set 3 - Shape Patterns
+ * 
+ * @author Julien 
+ * @version 3/8/24
+ */
+import java.util.Scanner;
+public class Main 
+{
+//promtps user to input type of shape and size
+    public static void main(String[] args) 
+    {
+        Scanner scnr = new Scanner (System.in);
+        System.out.print("Enter square, triangle or pyramid: ");
+        String shape = scnr.next();
+        if(shape.equals("square"))
+        {
+            int type;
+            int size;
+            System.out.print("Enter square type (1 or 2): ");
+            type = scnr.nextInt();
+            System.out.print("Enter size: ");
+            size = scnr.nextInt();
+            if(type == 1){
+                square1(size);
+            } else {
+                square2(size);
+            }
+        } 
+        else if(shape.equals("triangle"))
+        {
+            int size;
+            System.out.print("Enter size: ");
+            size = scnr.nextInt();
+            Triangle(size);
+        }
+        else if(shape.equals("pyramid"))
+        {
+            int size;
+            System.out.print("Enter size: ");
+            size = scnr.nextInt();
+            Pyramid(size);
+        }
+    }
+    /**prints square relative to size with numbers increasing vertically
+    @param int 
+    */
+        public static void square1(int size)
+        {
+            for(int i = 1; i <= size; i++)
+            {
+                for(int j = 0; j < size; j++ )
+                {
+                    System.out.print(i + " ");
+                }
+                System.out.println();
+            }
+        }
+    /**prints square relative to size with numbers increasing horizontally
+    @param int 
+    */
+        public static void square2(int size)
+        {
+        for(int i = 1; i <= size; i++)
+        {
+            for(int j = 1; j <= size; j++)
+            {
+            System.out.print(j +" ");
+            }
+            System.out.println();
+        }
+        }
+    /**prints triangle relative to size
+    @param int 
+    */
+        public static void Triangle(int size)
+        {
+        for(int i = 0; i < size; i++)
+        {
+            for(int j = 1; j <= size - i; j++)
+            {
+              System.out.print(j + " ");  
+            }
+            System.out.println();
+        }
+        }
+        /**prints pyramid relative to size
+    @param int 
+    */
+        public static void Pyramid(int size)
+        {
+        for(int i = 1; i <= size; i++)
+        {
+            for(int j = 1; j <= size-i; j++)
+            {
+              System.out.print("  ");  
+            }
+            for(int j = 1; j<=i;j++)
+            {
+                System.out.print(j + " ");
+            }
+            for(int j = i - 1; j>=1;j--)
+            {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+        }
+}
+
+
+
