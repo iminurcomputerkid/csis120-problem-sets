@@ -1,0 +1,59 @@
+/**
+ * Problem set #2, Do I say Hi? 
+ *
+ * This program asks a series of questions to determine if you should say hi to somone you recongnize.
+ * 
+ * @author Julien 
+ * @version 2/9/24
+ */
+
+import java.util.Scanner;
+public class SayHi {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+        String answer;
+        System.out.println("Do you remember the persons's name?");
+        answer = scanner.next();
+        if (answer.equalsIgnoreCase("no")) {
+            System.out.println("Is there time to flee?");
+            answer = scanner.next();
+            if(answer.equalsIgnoreCase("no")) {
+                System.out.println("Can you pretend to have a call?");
+                answer = scanner.next();
+                if (answer.equalsIgnoreCase("no")) {
+                    System.out.println("Are you wearing sunglasses?");
+                    answer = scanner.next();
+                    if (answer.equalsIgnoreCase("no")) {
+                        System.out.println("Think of an amusing nickname to use, like \"Slugger\".");
+                        System.out.println("Say hi.");
+                    }else {
+                        System.out.println("Don't say hi.");
+                    }
+                }else {
+                    System.out.println("Hello Doctor. What are my test results?");
+                    System.out.println("Don't say hi.");
+                }
+            }else {
+                System.out.println("Run!");
+                System.out.println("Don't say hi.");
+            }
+        }else { // yes response to first question
+            System.out.println("Is this person your friend?");
+            answer = scanner.next();
+            if (answer.equalsIgnoreCase("no")) {
+                System.out.println("Do they smell");
+                answer = scanner.next();
+                if (answer.equalsIgnoreCase("no")) {
+                    System.out.println("They don't bite");
+                    System.out.println("Say hi.");
+                }else {
+                    System.out.print("They smell.");
+                    System.out.println("Don't say hi.");
+                }
+            }else {
+                System.out.println("They are your friend.");
+                System.out.println("Say hi.");
+            }
+        }
+    }
+}
